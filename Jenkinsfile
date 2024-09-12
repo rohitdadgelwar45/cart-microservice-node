@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Checkout') {
             steps {
-                git 'https://your-repository-url.git'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitdadgelwar45/cart-microservice-node.git']])
             }
         }
     }
