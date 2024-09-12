@@ -21,7 +21,7 @@ pipeline{
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t -java:latest .'
+                sh 'docker build -t eureka:2002 .'
             }
         }
         
