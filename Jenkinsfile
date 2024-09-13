@@ -29,8 +29,8 @@ pipeline{
         }
         stage('Push Docker Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: '', usernameVariable: '')]) {
-                sh 'Docker push eureka:2002'
+                withCredentials([string(credentialsId: 'Docker-Hub-Pass', variable: 'Password'), string(credentialsId: 'Docker-Hub-ID', variable: 'Username')]) {
+                sh 'docker push eureka:2002'
                 }
             }
         }
