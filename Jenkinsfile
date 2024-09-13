@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t eureka:2002 .'
+                sh 'docker build -t eureka .'
             }
         }
         stage('Push Docker Image') {
             steps {
                 withCredentials([string(credentialsId: 'Docker-Hub-Pass', variable: 'Password'), string(credentialsId: 'Docker-Hub-ID', variable: 'Username')]) {
-                sh 'docker push eureka:2002'
+                sh 'docker push eureka'
                 }
             }
         }
