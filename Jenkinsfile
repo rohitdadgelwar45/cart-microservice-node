@@ -3,6 +3,9 @@ pipeline{
     tools{
         maven "maven"
     }
+    environment{
+        DOCKERHUB_CREDENTIAL=credentials('Dockerhub')
+    }
     stages{
         stage('Checkout') {
             steps {
