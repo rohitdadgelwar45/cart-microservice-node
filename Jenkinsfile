@@ -24,14 +24,14 @@ pipeline{
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t rohitdadgelwar/eureka:latest .'
+                sh 'docker build -t rohitdadgelwar/eureka .'
             }
         }
         stage('Push Docker Image') {
             steps {
-               withDockerRegistry(credentialsId: 'Dockerhub') {
-                        sh 'docker push rohitdadgelwar/eureka'
-                    }
+               withDockerRegistry(credentialsId: 'Dockerhub', url: 'https://hub.docker.com/repository/docker/rohitdadgelwar/eureka/general') {
+                            sh 'docker push rohitdadgelwar/eureka'
+                        }
                 }
             }
         }
