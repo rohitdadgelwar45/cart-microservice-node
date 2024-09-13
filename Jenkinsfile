@@ -24,7 +24,7 @@ pipeline{
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t eureka .'
+                sh 'docker build -t rohitdadgelwar/eureka .'
             }
         }
         stage('Push Docker Image') {
