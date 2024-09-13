@@ -3,6 +3,9 @@ pipeline{
     tools{
         maven "maven"
     }
+    environment{
+        DOCKERHUB_CREDENTIAL=credentials('Dockerhub')
+    }
     stages{
         stage('Checkout') {
             steps {
@@ -22,6 +25,13 @@ pipeline{
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t eureka:2002 .'
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: '', usernameVariable: '')]) {
+                sh 'Docker push eureka:2002'
+                }
             }
         }
         
