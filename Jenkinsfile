@@ -30,7 +30,7 @@ pipeline{
         stage('Push Docker Image') {
             steps {
                 withCredentials([string(credentialsId: 'Docker-Hub-Pass', variable: 'Password'), string(credentialsId: 'Docker-Hub-ID', variable: 'Username')]) {
-                sh 'docker push eureka'
+                sh 'docker push rohitdadgelwar/eureka'
                 }
             }
         }
