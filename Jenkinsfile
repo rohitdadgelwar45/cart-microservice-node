@@ -27,14 +27,6 @@ pipeline{
                 sh 'docker build -t rohitdadgelwar/eureka .'
             }
         }
-        stage('Push Docker Image') {
-            steps {
-                   withDockerRegistry(credentialsId: 'DockerHub', url: 'https://hub.docker.com/repository/docker/rohitdadgelwar/eureka/general') {
-                    sh 'docker push rohitdadgelwar/eureka'
-                   }
-            }
-
-        }
     }
         
     
