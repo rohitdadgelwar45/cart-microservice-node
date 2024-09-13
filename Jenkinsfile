@@ -29,11 +29,12 @@ pipeline{
         }
         stage('Push Docker Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'Password', usernameVariable: 'Username')]) {
-                sh 'docker push rohitdadgelwar/eureka'
+               withDockerRegistry(credentialsId: 'Dockerhub') {
+                        sh 'docker push rohitdadgelwar/eureka'
+                    }
                 }
             }
         }
         
-    }
+    
 }
