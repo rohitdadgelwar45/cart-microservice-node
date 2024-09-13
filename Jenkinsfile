@@ -29,9 +29,9 @@ pipeline{
         }
         stage('Push Docker Image') {
             steps {
-               withDockerRegistry(credentialsId: 'Dockerhub', url: 'https://hub.docker.com/repository/docker/rohitdadgelwar/eureka/general') {
-                            sh 'docker push rohitdadgelwar/eureka'
-                        }
+               withDockerRegistry(credentialsId: 'DockerHub-id-pass', url: 'https://hub.docker.com/repositories/rohitdadgelwar/eureka') {
+                        sh 'docker push rohitdadgelwar/eureka'
+                    }
                 }
             }
         }
